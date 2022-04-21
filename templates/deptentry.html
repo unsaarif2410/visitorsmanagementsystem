@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SignUp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Department Entry</h2>
+  <form method="POST">
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="text">Department Name:</label>
+      <input type="text" class="form-control" id="Department_Name" placeholder="Enter Department Name" name="Department_Name">
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+  {% if messages %}
+  {% for msg in messages %}
+   
+  <b> {{msg}} </b>
+  {% endfor %}
+  {% endif %}
+</form>
+</div>
+
+</body>
+</html>

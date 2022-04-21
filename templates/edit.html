@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EDIT USER</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="color: #008CBA;; text-align: center;">Edit User</h2>
+  <form method="POST" class="post-form" action="/update/{{User.User_ID}}">
+      <input type="hidden" name="User_ID" id="User_ID" required maxlength="20" value="{{ User.User_ID }}"/>
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="usr">Username:</label>
+        <input type="text" class="form-control" id="usr" placeholder="Enter Username" name="Username" value="{{ User.Username }}"/>
+      </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{ User.email }}"/>
+    </div>
+    
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password" value="{{ User.Password }}"/>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success">Update</button>
+  {% if messages %}
+  {% for msg in messages %}
+   
+  <b> {{msg}} </b>
+  {% endfor %}
+  {% endif %}
+</form>
+</div>
+
+</body>
+</html>
